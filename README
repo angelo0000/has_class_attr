@@ -1,0 +1,37 @@
+HasClassAttr
+============
+
+has_class_attr is a small helper plugin.  It really is not tied to rails, but I 
+think it is too small for a gem :)
+
+Its purpose is to set a instance variable on a class definition and expose it
+through a method.
+
+
+Example
+=======
+
+Old Way:
+
+def MyClass
+  @items = [1,2,3]
+
+  def self.static_items
+    @items
+  end
+end
+
+MyClass.static_items #[1,2,3]
+
+
+New Way:
+def MyClass
+  has_class_attr :items, :data => [1,2,3]
+end
+
+MyClass.items #[1,2,3]
+
+
+
+
+Copyright (c) 2009 StarterStep, released under the MIT license
